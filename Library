@@ -1,0 +1,236 @@
+public class Library
+{
+    public static void print_varswitch(int a, int b)
+    {
+        int aux = a;
+        a = b;
+        b = aux;
+        System.out.println(a);
+        System.out.println(b);
+    }
+    
+    public static void print_inv3digitnum(int a)
+    {
+        int centena = a/100;
+        int aux = a%100;
+        int dezena = aux/10;
+        int unidade = aux%10;
+        System.out.print(unidade);
+        System.out.print(dezena);
+        System.out.print(centena);
+    }
+    
+    public static long return_invnum(int x)
+    {
+        long r = 0;
+        while (x != 0){
+            r = r*10 + x%10;
+            x = x/10;
+        }
+        return r;
+    }
+    
+    public static void print_invarray(int[] original)
+    {
+        int[] invert = new int[original.length];
+        for(int i = (original.length-1); i >= 0; i--)
+        {
+            for(int j = -i - 1 + original.length; j < original.length; j++)
+            {
+                invert[j] = original[i];
+            }
+        }
+        // Aqui ja esta inv
+        // Parte de baixo so para print cada index
+        for(int i = 0; i < invert.length; i++)
+        {
+            System.out.println(invert[i]);
+        }
+    }
+    
+    public static void string_charquant(String a)
+    {
+        System.out.println(a.length());
+    }
+    
+    public static void string_letterquant(String a)
+    {
+        a = a.replace(" ", "");
+        Library.string_charquant(a);
+    }
+    
+    public static void print_charbychar(String a)
+    {
+        char[] ins = a.toCharArray();
+        for(int i = 0; i < ins.length; i++)
+        {
+            System.out.println(ins[i]);
+        }
+    }
+    
+    // Combination of p_cbc & p_invarray
+    public static void print_inv_charbychar(String a)
+    {
+        char[] ins = a.toCharArray();
+        char[] inverse = new char[ins.length];
+        for(int i = (ins.length-1); i >= 0; i--)
+        {
+            for(int j = -i - 1 + ins.length; j < ins.length; j++)
+            {
+                inverse[j] = ins[i];
+            }
+        }
+        for(int i = 0; i < inverse.length; i++)
+        {
+            System.out.println(inverse[i]);
+        }
+    }
+    //
+    
+    public static void neg_dec(double a){
+        if(a < 0){
+            System.out.println("Negative value not allowed. Insert positive integer.");
+        }
+        if(a % 1 != 0){
+            System.out.println("Decimal value not allowed. Insert positive integer.");
+        }
+    }
+    
+    public static double avg(double a, double b, double c, double d)
+    {
+        return((a+b+c+d)/4.0);
+    }
+    
+    public static double biggerthan_2(double a, double b)
+    {
+        return((a+b+(Math.abs(a-b)))/2);
+    }
+    
+    public static void print_biggerthan_3(double a, double b, double c)
+    {
+        if(a == b && b ==c)
+        {
+            System.out.println(a);
+        }
+        else
+        {
+            if(a >= b && a >= c)
+            {
+                System.out.println(a);
+            }
+            if(b >= a && b >= c)
+            {
+                System.out.println(b);
+            }
+            if(c >= a && c >= b)
+            {
+                System.out.println(c);
+            }
+        }
+    }
+    
+    // Area Formulas
+    public static double areaRectangle(double length, double width)
+    {
+        return(length*width);
+    }
+    
+    public static double areaSquare(double side)
+    {
+        return(side*side);
+    }
+    
+    public static double areaRightTriangle(double base, double height)
+    {
+        return(base*height/2);
+    }
+    
+    public static double areaEquilateralTriangle(double side)
+    {
+        return((Math.sqrt(3)/4)*side*side);
+    }
+    
+    public static double areaIsoscelesTriangle(double a, double b)
+    {
+        return((1/2)*b*Math.sqrt((a*a)-((b*b)/4)));
+    }
+    
+    public static double areaScaleneTriangle(double a, double b, double c)
+    {
+        double s = (a+b+c)/2;
+        return(Math.sqrt(s*(s-a)*(s-b)*(s-c)));
+    }
+    
+    public static double areaTriangleTrig(double a, double b, double C)
+    {
+        return((1/2)*a*b*Math.sin(C));
+    }
+    
+    public static double areaCircle(double radius)
+    {
+        return(radius*radius*Math.PI);
+    }
+    
+    // Perimeter Formulas
+    public static double perimeterRectangle(double length, double width)
+    {
+        return(2*length+2*width);
+    }
+    
+    public static double perimeterSquare(double side)
+    {
+        return(4*side);
+    }
+    
+    public static double perimeterEquilateralTriangle(double side)
+    {
+        return(3*side);
+    }
+    
+    public static double perimeterIsoscelesTriangle(double a, double b)
+    {
+        return((2*a)+b);
+    }
+    
+    public static double perimeterScaleneTriangle(double a, double b, double c)
+    {
+        return(a+b+c);
+    }
+    
+    public static double circumferenceCircle(double radius)
+    {
+        return(2*radius*Math.PI);
+    }
+    
+    // Volume Formulas
+    public static double volumeRectangularPrism(double length, double width, double height)
+    {
+        return(length*width*height);
+    }
+    
+    public static double volumeCube(double side)
+    {
+        return(side*side*side);
+    }
+    
+    public static double volumeSphere(double radius)
+    {
+        return((4/3)*radius*radius*radius*Math.PI);
+    }
+    
+    // Surface Area
+    public static double saRectangularPrism(double length, double width, double height)
+    {
+        return(2*(length*width)+2*(length*height)+2*(width*height));
+    }
+    
+    public static double saCube(double side)
+    {
+        return(6*side*side);
+    }
+    
+    public static double saSphere(double radius)
+    {
+        return(4*radius*radius*Math.PI);
+    }
+}
